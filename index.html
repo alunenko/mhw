@@ -738,16 +738,17 @@
             if (i === 0 || (data[i].year !== data[i-1].year) || (data[i].miniCollection !== data[i-1].miniCollection)) {
                 let itemRow = document.createElement('tr');
                 let itemCell = document.createElement('td');
+                const upperCaseCollectionNameWithHypfin = data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_');
 
                 itemCell.setAttribute('colspan', defineColumnsLength + 1);
-                itemCell.setAttribute('class', mhwEnumCollections[data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_')].CLASS);
+                itemCell.setAttribute('class', mhwEnumCollections[upperCaseCollectionNameWithHypfin].CLASS);
 
                 let aElement = document.createElement('a');
                 let year = data[i].year;
 
-                aElement.setAttribute('href', mhwEnumCollections[data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_')].URL(year));
+                aElement.setAttribute('href', mhwEnumCollections[upperCaseCollectionNameWithHypfin].URL(year));
                 aElement.setAttribute('target', '_blank');
-                aElement.innerText = mhwEnumCollections[data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_')].TEXT;
+                aElement.innerText = mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT;
 
                 itemCell.appendChild(aElement);
                 itemRow.appendChild(itemCell);
