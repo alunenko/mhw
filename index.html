@@ -132,9 +132,7 @@
             <td>---</td>
             <td>Chicane (base code: K47)</td>
             <td>---</td>
-            <td class="img">
-                <img src="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         </tbody>
@@ -170,9 +168,7 @@
             <td>---</td>
             <td>Fish'd & Chip'd</td>
             <td>---</td>
-            <td class="img">
-                <img src="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         </tbody>
@@ -208,9 +204,7 @@
             <td>067/250</td>
             <td>Rodger Dodger</td>
             <td>8/10</td>
-            <td class="img">
-                <img src="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region HW Rescue 5-Pack-->
@@ -228,9 +222,7 @@
             <td>---</td>
             <td>Speed Trap</td>
             <td>2/5</td>
-            <td class="img">
-                <img src="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region Urban Camouflage-->
@@ -248,9 +240,7 @@
             <td>---</td>
             <td>'16 Honda Civic Type R</td>
             <td>2/5</td>
-            <td class="img">
-                <img src="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         </tbody>
@@ -286,10 +276,7 @@
             <td>087/250</td>
             <td>'06 Pontiac GTO</td>
             <td>5/10</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region X-Raycers-->
@@ -307,10 +294,7 @@
             <td>160/250</td>
             <td>Draftnator</td>
             <td>5/5</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region HW Flames-->
@@ -328,10 +312,7 @@
             <td>189/250</td>
             <td>Mod Rod</td>
             <td>1/5</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <tr>
             <td></td>
@@ -341,10 +322,7 @@
             <td>229/250</td>
             <td>'52 Chevy</td>
             <td>3/5</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region HW Space-->
@@ -362,10 +340,7 @@
             <td>150/250</td>
             <td>Airuption</td>
             <td>2/5</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         </tbody>
@@ -401,10 +376,7 @@
             <td>---</td>
             <td>Torque Twister</td>
             <td>---</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
         <!--region HW Screen Time-->
@@ -422,10 +394,7 @@
             <td>008/250</td>
             <td>Standard Kart</td>
             <td>1/10</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <tr>
             <td></td>
@@ -435,13 +404,10 @@
             <td>035/250</td>
             <td>Disney Steamboat</td>
             <td>3/10</td>
-            <td class="img">
-                <img src=""
-                     alt="">
-            </td>
+            <td class="img">in data</td>
         </tr>
         <!--endregion-->
-        <!--region Factory Fresh-->
+        <!--region Factory Fresh (HERE)-->
         <tr>
             <td colspan="8"
                 class="factory-fresh">
@@ -617,6 +583,11 @@
                 TEXT: `HW Space`,
                 CLASS: `hw-space`
             },
+            HW_SCREEN_TIME: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Screen_Time_Mini_Collection_(${year})`,
+                TEXT: `Hw Screen Time`,
+                CLASS: `hw-screen-time`
+            }
         }
 
         var data = [
@@ -630,21 +601,21 @@
                 imageUrl: null
             },
             {
-                year: 2020,
-                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                toyID: `GHD92`,
-                colID: `067/250`,
-                casting: `Rodger Dodger`,
-                set: `8/10`,
-                imageUrl: null
-            },
-            {
                 year: 2019,
                 miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
                 toyID: `BHR31`,
                 colID: null,
                 casting: `Fish'd & Chip'd`,
                 set: null,
+                imageUrl: null
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `GHD92`,
+                colID: `067/250`,
+                casting: `Rodger Dodger`,
+                set: `8/10`,
                 imageUrl: null
             },
             {
@@ -663,6 +634,15 @@
                 colID: null,
                 casting: `'16 Honda Civic Type R`,
                 set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `GTB72`,
+                colID: `087/250`,
+                casting: `'06 Pontiac GTO`,
+                set: `5/10`,
                 imageUrl: null
             },
             {
@@ -699,6 +679,33 @@
                 colID: `150/250`,
                 casting: `Airuption`,
                 set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
+                toyID: `BHR16`,
+                colID: `---`,
+                casting: `Torque Twister`,
+                set: `---`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCT55`,
+                colID: `008/250`,
+                casting: `Standard Kart`,
+                set: `1/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCT56`,
+                colID: `035/250`,
+                casting: `Disney Steamboat`,
+                set: `3/10`,
                 imageUrl: null
             }
         ];
