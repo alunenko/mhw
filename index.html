@@ -184,6 +184,15 @@
             {
                 year: 2020,
                 miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `GHF53`,
+                colID: `066/250`,
+                casting: `Cruise Bruiser`,
+                set: `2/10`,
+                imageUrl: null
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
                 toyID: `GHD92`,
                 colID: `067/250`,
                 casting: `Rodger Dodger`,
@@ -340,7 +349,7 @@
                 toyID: `HCW59`,
                 colID: `032/250`,
                 casting: `Batman`,
-                set: `2/10`,
+                set: `2/5`,
                 imageUrl: null
             },
             {
@@ -349,12 +358,14 @@
                 toyID: `HCT04`,
                 colID: `078/250`,
                 casting: `Classic TV Series Batmobile`,
-                set: `3/10`,
+                set: `3/5`,
                 imageUrl: null
             }
         ];
 
         data.sort((a, b) => a.year - b.year);
+        /* TODO: then, sort by collection name */
+        /* TODO: then, sort by set */
 
         var tableTag = document.createElement('table'),
             dataLength = data.length,
