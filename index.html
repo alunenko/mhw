@@ -105,34 +105,58 @@
     <script>
         var photos = {};
         window.fbAsyncInit = function() {
+            let at;
+
             FB.init({
                 appId            : '650785721994629',
                 autoLogAppEvents : true,
                 xfbml            : true,
                 version          : 'v15.0'
             });
+            FB.getLoginStatus((response) => auth());
 
-            FB.api(
-                '/me',
-                'GET',
-                {
-                    "access_token":"EAAJP4tvIzYUBAOiN2X7iZAQHLUmopeQpdCiHfL1cB7YQXdYgXQTSZB1jWrsbXsIPDMzJM9YuCrCHt7IP5JZAK4sbB62eqb5mMZCMuVwOBOMXIpfJbyZBJb6mJVzcXtiR73yOSFb7L0etZCEn4zqOVPqoxAZC8gwuRj727YCLAzKQKH08ss8gjZANIK3kJ9H82YPIdF9NT59pgklYiK9A1ZBg2wIhkKFW7dq6LoARx2l8KNhvC1QgnARKo",
-                    "fields":"albums{name,photos{webp_images,name}}"
-                },
-                function(response) {
-                    // Insert your code here
-                    console.log('response ', response);
-                    response.albums.data.find((album) => {
-                        if(album.name === 'MHW') {
-                            console.log('album.photos ', album.photos.data.map((photo, index) => {
-                                console.log('photo.webp_images ', photo.webp_images[0].source);
-                                photos[photo.name] = photo.webp_images[0].source;
-                            }));
-                            AfterFbInit();
-                        }
-                    })
-                }
-            );
+            function auth() {
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                        at = response.authResponse.accessToken;
+                        getFBAlbums();
+                    } else {
+                        alert('User cancelled login or did not fully authorize.');
+                    }
+                });
+            }
+
+            function getFBAlbums() {
+                FB.api(
+                    '/me',
+                    'GET',
+                    {
+                        "access_token":at,
+                        "fields":"albums{name,photos{webp_images,name}}"
+                    },
+                    handleResponse
+                );
+            }
+
+            function handleResponse(response) {
+                response.error ? responseError(response) : responseSuccess(response);
+            }
+
+            function responseSuccess(response) {
+                // Insert your code here
+                response.albums.data.find((album) => {
+                    if(album.name === 'MHW') {
+                        album.photos.data.map((photo, index) => {
+                            photos[photo.name] = photo.webp_images[0].source;
+                        })
+                        AfterFbInit();
+                    }
+                });
+            }
+
+            function responseError() {
+                alert('error: get albums');
+            }
         };
     </script>
     <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
@@ -211,7 +235,7 @@
                     colID: null,
                     casting: `Chicane (base code: K47)`,
                     set: null,
-                    imageUrl: null
+                    imageUrl: photos["DGC"]
                 },
                 {
                     year: 2019,
@@ -529,8 +553,6 @@
                     imageUrl: null
                 }
             ];
-            console.log('data ', data);
-            console.log('photos["BHR31"] ', photos["BHR31"]);
 
             data.sort((a, b) => a.year - b.year);
             /* TODO: then, sort by collection name */
