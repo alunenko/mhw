@@ -97,562 +97,495 @@
         <li style="height: 100%; background-color: gray;">222</li>
     </ul>
 
-    <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script>
-        var photos = {
-            "500px": "https://drscdn.500px.org/photo/1022461/m%3D900/v2?sig=6a64be062f034afad996a941e2e563506a3afe7e9ad8333913beb62d9d65d5ea"
-        };
-        window.fbAsyncInit = function() {
-            let at;
+        var mhwEnumCollections = {
+            MULTIPACK_EXCLUSIVE: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/${year}_Multi-Pack_Exclusives`,
+                TEXT: `Multipack Exclusive`,
+                CLASS: `multipack-exclusive`
+            },
+            COLOR_SHIFTERS: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/Color_Shifters#${year}_Color_Shifters`,
+                TEXT: `Color Shifters`,
+                CLASS: `color-shifters`
+            },
+            HW_ART_CARS: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Art_Cars_Mini_Collection_(${year})`,
+                TEXT: `HW Art Cars`,
+                CLASS: `hw-art-cars`
+                /* 2022 -> CARS_AMOUNT: 19 */
+            },
+            HW_RESCUE_5_PACK: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Rescue_5-Pack`,
+                TEXT: `HW Rescue 5-Pack`,
+                CLASS: `hw-rescue-5-pack`
+            },
+            URBAN_CAMOUFLAGE: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/Urban_Camouflage_Series_(${year})`,
+                TEXT: `Urban Camouflage`,
+                CLASS: `urban-camouflage`
+            },
+            FACTORY_FRESH: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/Factory_Fresh_Mini_Collection_(${year})`,
+                TEXT: `Factory Fresh`,
+                CLASS: `factory-fresh`
+            },
+            X_RAYCERS: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/X-Raycers_Mini_Collection_(${year})`,
+                TEXT: `X-Raycers`,
+                CLASS: `x-raycers`
+            },
+            HW_FLAMES: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Flames_Mini_Collection_(${year})`,
+                TEXT: `HW Flames`,
+                CLASS: `hw-flames`
+            },
+            HW_SPACE: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Space_Mini_Collection_(${year})`,
+                TEXT: `HW Space`,
+                CLASS: `hw-space`
+            },
+            HW_SCREEN_TIME: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Screen_Time_Mini_Collection_(${year})`,
+                TEXT: `Hw Screen Time`,
+                CLASS: `hw-screen-time`
+            },
+            BATMAN: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/Batman_Mini_Collection_(${year})`,
+                TEXT: `Batman`,
+                CLASS: `batman`,
+                /* 2022 -> CARS_AMOUNT: 11 */
+            },
+            TRACK_STARS: {
+                URL: (year) => `https://hotwheels.fandom.com/wiki/Track_Stars_Mini_Collection_(${year})`,
+                TEXT: `Track Stars`,
+                CLASS: `track-stars`
+            }
+        }
 
-            FB.init({
-                appId            : '650785721994629',
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version          : 'v15.0'
-            });
-            FB.getLoginStatus((response) => {
-                if (response.status === 'connected') {
-                    getFBAlbums();
+        var data = [
+            {
+                year: 2018,
+                miniCollection: mhwEnumCollections.MULTIPACK_EXCLUSIVE.TEXT,
+                toyID: null,
+                colID: null,
+                casting: `Chicane (base code: K47)`,
+                set: null,
+                imageUrl: null
+            },
+            {
+                year: 2019,
+                miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
+                toyID: `BHR31`,
+                colID: `28/48`,
+                casting: `Fish'd & Chip'd`,
+                set: `28/48`,
+                /*imageUrl: photos["BHR31"]*/
+                imageUrl: 'https://drscdn.500px.org/photo/1055388420/m%3D900/v2?sig=c8b53154f186d1cec813c06408af1c4c0298e461de2b8f7f760cc05bea74456b'
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `GHF53`,
+                colID: `066/250`,
+                casting: `Cruise Bruiser`,
+                set: `2/10`,
+                imageUrl: null
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `GHD92`,
+                colID: `067/250`,
+                casting: `Rodger Dodger`,
+                set: `8/10`,
+                imageUrl: null
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.HW_RESCUE_5_PACK.TEXT,
+                toyID: `J5`,
+                colID: null,
+                casting: `Speed Trap`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2020,
+                miniCollection: mhwEnumCollections.URBAN_CAMOUFLAGE.TEXT,
+                toyID: `GJV53`,
+                colID: null,
+                casting: `'16 Honda Civic Type R`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `GTB72`,
+                colID: `087/250`,
+                casting: `'06 Pontiac GTO`,
+                set: `5/10`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.X_RAYCERS.TEXT,
+                toyID: `GRX53`,
+                colID: `160/250`,
+                casting: `Draftnator`,
+                set: `5/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.HW_FLAMES.TEXT,
+                toyID: `GTB16`,
+                colID: `189/250`,
+                casting: `Mod Rod`,
+                set: `1/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.HW_FLAMES.TEXT,
+                toyID: `GTB19`,
+                colID: `229/250`,
+                casting: `'52 Chevy`,
+                set: `3/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.HW_SPACE.TEXT,
+                toyID: `GRY74`,
+                colID: `150/250`,
+                casting: `Airuption`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
+                toyID: `BHR16`,
+                colID: `---`,
+                casting: `Torque Twister`,
+                set: `---`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCT55`,
+                colID: `008/250`,
+                casting: `Standard Kart`,
+                set: `1/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCT56`,
+                colID: `035/250`,
+                casting: `Disney Steamboat`,
+                set: `3/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCV53`,
+                colID: `080/250`,
+                casting: `U.S.S. Enterprise NCC-1701`,
+                set: `5/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
+                toyID: `HCT14`,
+                colID: `179/250`,
+                casting: `Armadillo`,
+                set: `9/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `HCW39`,
+                colID: `106/250`,
+                casting: `2020 Corvette`,
+                set: `3/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `HCT93`,
+                colID: `107/250`,
+                casting: `McLaren F1`,
+                set: `4/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `HCT13`,
+                colID: `124/250`,
+                casting: `Nissan Z Proto`,
+                set: `5/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
+                toyID: `HCT46`,
+                colID: `169/250`,
+                casting: `Honda Super Cub`,
+                set: `8/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW56`,
+                colID: `062/250`,
+                casting: `Bully Goat`,
+                set: `1/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW34`,
+                colID: `063/250`,
+                casting: `'68 Dodge Dart`,
+                set: `2/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW96`,
+                colID: `063/250`,
+                casting: `'68 Dodge Dart`,
+                set: `2/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCT53`,
+                colID: `087/250`,
+                casting: `Raijin Express`,
+                set: `3/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCV74`,
+                colID: `108/250`,
+                casting: `'69 Chevy Pickup`,
+                set: `4/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCX45`,
+                colID: `108/250`,
+                casting: `'69 Chevy Pickup`,
+                set: `4/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW33`,
+                colID: `109/250`,
+                casting: `'71 Dodge Charger`,
+                set: `5/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW44`,
+                colID: `170/250`,
+                casting: `MS-T Suzuka`,
+                set: `6/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
+                toyID: `HCW43`,
+                colID: `213/250`,
+                casting: `Electro Silhouette`,
+                set: `9/10`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCW59`,
+                colID: `032/250`,
+                casting: `Batman: Arkham Asylum Batmobile`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCV63`,
+                colID: `032/250`,
+                casting: `Batman: Arkham Asylum Batmobile`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCW63`,
+                colID: `032/250`,
+                casting: `Batman: Arkham Asylum Batmobile`,
+                set: `2/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCT04`,
+                colID: `078/250`,
+                casting: `Classic TV Series Batmobile`,
+                set: `3/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCW60`,
+                colID: `078/250`,
+                casting: `Classic TV Series Batmobile`,
+                set: `3/5`,
+                imageUrl: null
+            },
+            {
+                year: 2022,
+                miniCollection: mhwEnumCollections.BATMAN.TEXT,
+                toyID: `HCV64`,
+                colID: `131/250`,
+                casting: `TV Series Batmobile`,
+                set: `4/5`,
+                imageUrl: null
+            },
+            {
+                year: 2021,
+                miniCollection: mhwEnumCollections.TRACK_STARS.TEXT,
+                toyID: `GRY83`,
+                colID: `123/250`,
+                casting: `Grand Cross`,
+                set: `4/5`,
+                imageUrl: null
+            }
+        ];
+
+        data.sort((a, b) => a.year - b.year);
+        /* TODO: then, sort by collection name */
+        /* TODO: then, sort by set */
+
+        var tableTag = document.createElement('table'),
+            dataLength = data.length,
+            defineColumns = Object.keys(data[0]),
+            defineColumnsLength = defineColumns.length
+        ;
+
+        const headerRow = (() => {
+            let headerRow = document.createElement('tr');
+
+            for(let i = -1; i < defineColumnsLength; i++) {
+                let headerCell = document.createElement('th');
+
+                if (i === -1) {
+                    headerCell.innerText = `#`;
                 } else {
-                    auth();
-                }
-            });
-
-            function auth() {
-                FB.login(function(response) {
-                    if (response.authResponse) {
-                        at = response.authResponse.accessToken;
-                        getFBAlbums();
-                    } else {
-                        alert('User cancelled login or did not fully authorize.');
-                    }
-                });
-            }
-
-            function getFBAlbums() {
-                FB.api(
-                    '/me',
-                    'GET',
-                    {
-                        "access_token":at,
-                        "fields":"albums{name,photos{webp_images,name}}"
-                    },
-                    handleResponse
-                );
-            }
-
-            function handleResponse(response) {
-                response.error ? responseError(response) : responseSuccess(response);
-            }
-
-            function responseSuccess(response) {
-                // Insert your code here
-                response.albums.data.find((album) => {
-                    if(album.name === 'MHW') {
-                        album.photos.data.map((photo, index) => {
-                            photos[photo.name] = photo.webp_images[0].source;
-                        })
-                        AfterFbInit();
-                    }
-                });
-            }
-
-            function responseError() {
-                alert('error: get albums');
-            }
-        };
-    </script>
-    <script>
-        function AfterFbInit() {
-            var mhwEnumCollections = {
-                MULTIPACK_EXCLUSIVE: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/${year}_Multi-Pack_Exclusives`,
-                    TEXT: `Multipack Exclusive`,
-                    CLASS: `multipack-exclusive`
-                },
-                COLOR_SHIFTERS: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/Color_Shifters#${year}_Color_Shifters`,
-                    TEXT: `Color Shifters`,
-                    CLASS: `color-shifters`
-                },
-                HW_ART_CARS: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Art_Cars_Mini_Collection_(${year})`,
-                    TEXT: `HW Art Cars`,
-                    CLASS: `hw-art-cars`
-                    /* 2022 -> CARS_AMOUNT: 19 */
-                },
-                HW_RESCUE_5_PACK: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Rescue_5-Pack`,
-                    TEXT: `HW Rescue 5-Pack`,
-                    CLASS: `hw-rescue-5-pack`
-                },
-                URBAN_CAMOUFLAGE: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/Urban_Camouflage_Series_(${year})`,
-                    TEXT: `Urban Camouflage`,
-                    CLASS: `urban-camouflage`
-                },
-                FACTORY_FRESH: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/Factory_Fresh_Mini_Collection_(${year})`,
-                    TEXT: `Factory Fresh`,
-                    CLASS: `factory-fresh`
-                },
-                X_RAYCERS: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/X-Raycers_Mini_Collection_(${year})`,
-                    TEXT: `X-Raycers`,
-                    CLASS: `x-raycers`
-                },
-                HW_FLAMES: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Flames_Mini_Collection_(${year})`,
-                    TEXT: `HW Flames`,
-                    CLASS: `hw-flames`
-                },
-                HW_SPACE: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Space_Mini_Collection_(${year})`,
-                    TEXT: `HW Space`,
-                    CLASS: `hw-space`
-                },
-                HW_SCREEN_TIME: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Screen_Time_Mini_Collection_(${year})`,
-                    TEXT: `Hw Screen Time`,
-                    CLASS: `hw-screen-time`
-                },
-                BATMAN: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/Batman_Mini_Collection_(${year})`,
-                    TEXT: `Batman`,
-                    CLASS: `batman`,
-                    /* 2022 -> CARS_AMOUNT: 11 */
-                },
-                TRACK_STARS: {
-                    URL: (year) => `https://hotwheels.fandom.com/wiki/Track_Stars_Mini_Collection_(${year})`,
-                    TEXT: `Track Stars`,
-                    CLASS: `track-stars`
-                }
-            }
-
-            var data = [
-                {
-                    year: 2018,
-                    miniCollection: mhwEnumCollections.MULTIPACK_EXCLUSIVE.TEXT,
-                    toyID: null,
-                    colID: null,
-                    casting: `Chicane (base code: K47)`,
-                    set: null,
-                    imageUrl: photos["DGC"]
-                },
-                {
-                    year: 2019,
-                    miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
-                    toyID: `BHR31`,
-                    colID: `28/48`,
-                    casting: `Fish'd & Chip'd`,
-                    set: `28/48`,
-                    imageUrl: photos["BHR31"]
-                },
-                {
-                    year: 2020,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `GHF53`,
-                    colID: `066/250`,
-                    casting: `Cruise Bruiser`,
-                    set: `2/10`,
-                    imageUrl: photos["GHF53"]
-                },
-                {
-                    year: 2020,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `GHD92`,
-                    colID: `067/250`,
-                    casting: `Rodger Dodger`,
-                    set: `8/10`,
-                    imageUrl: photos["GHD92"]
-                },
-                {
-                    year: 2020,
-                    miniCollection: mhwEnumCollections.HW_RESCUE_5_PACK.TEXT,
-                    toyID: `J5`,
-                    colID: null,
-                    casting: `Speed Trap`,
-                    set: `2/5`,
-                    imageUrl: photos["J5"]
-                },
-                {
-                    year: 2020,
-                    miniCollection: mhwEnumCollections.URBAN_CAMOUFLAGE.TEXT,
-                    toyID: `GJV53`,
-                    colID: null,
-                    casting: `'16 Honda Civic Type R`,
-                    set: `2/5`,
-                    imageUrl: photos["GJV53"]
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
-                    toyID: `GTB72`,
-                    colID: `087/250`,
-                    casting: `'06 Pontiac GTO`,
-                    set: `5/10`,
-                    imageUrl: photos["GTB72"]
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.X_RAYCERS.TEXT,
-                    toyID: `GRX53`,
-                    colID: `160/250`,
-                    casting: `Draftnator`,
-                    set: `5/5`,
-                    imageUrl: photos["GRX53"]
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.HW_FLAMES.TEXT,
-                    toyID: `GTB16`,
-                    colID: `189/250`,
-                    casting: `Mod Rod`,
-                    set: `1/5`,
-                    imageUrl: photos["GTB16"]
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.HW_FLAMES.TEXT,
-                    toyID: `GTB19`,
-                    colID: `229/250`,
-                    casting: `'52 Chevy`,
-                    set: `3/5`,
-                    imageUrl: photos["GTB19"]
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.HW_SPACE.TEXT,
-                    toyID: `GRY74`,
-                    colID: `150/250`,
-                    casting: `Airuption`,
-                    set: `2/5`,
-                    imageUrl: photos["GRY74"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.COLOR_SHIFTERS.TEXT,
-                    toyID: `BHR16`,
-                    colID: `---`,
-                    casting: `Torque Twister`,
-                    set: `---`,
-                    imageUrl: photos["BHR16"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
-                    toyID: `HCT55`,
-                    colID: `008/250`,
-                    casting: `Standard Kart`,
-                    set: `1/10`,
-                    imageUrl: photos["HCT55"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
-                    toyID: `HCT56`,
-                    colID: `035/250`,
-                    casting: `Disney Steamboat`,
-                    set: `3/10`,
-                    imageUrl: photos["HCT56"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
-                    toyID: `HCV53`,
-                    colID: `080/250`,
-                    casting: `U.S.S. Enterprise NCC-1701`,
-                    set: `5/10`,
-                    imageUrl: photos["HCV53"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_SCREEN_TIME.TEXT,
-                    toyID: `HCT14`,
-                    colID: `179/250`,
-                    casting: `Armadillo`,
-                    set: `9/10`,
-                    imageUrl: photos["HCT14"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
-                    toyID: `HCW39`,
-                    colID: `106/250`,
-                    casting: `2020 Corvette`,
-                    set: `3/10`,
-                    imageUrl: photos["500px"]
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
-                    toyID: `HCT93`,
-                    colID: `107/250`,
-                    casting: `McLaren F1`,
-                    set: `4/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
-                    toyID: `HCT13`,
-                    colID: `124/250`,
-                    casting: `Nissan Z Proto`,
-                    set: `5/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.FACTORY_FRESH.TEXT,
-                    toyID: `HCT46`,
-                    colID: `169/250`,
-                    casting: `Honda Super Cub`,
-                    set: `8/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW56`,
-                    colID: `062/250`,
-                    casting: `Bully Goat`,
-                    set: `1/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW34`,
-                    colID: `063/250`,
-                    casting: `'68 Dodge Dart`,
-                    set: `2/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW96`,
-                    colID: `063/250`,
-                    casting: `'68 Dodge Dart`,
-                    set: `2/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCT53`,
-                    colID: `087/250`,
-                    casting: `Raijin Express`,
-                    set: `3/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCV74`,
-                    colID: `108/250`,
-                    casting: `'69 Chevy Pickup`,
-                    set: `4/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCX45`,
-                    colID: `108/250`,
-                    casting: `'69 Chevy Pickup`,
-                    set: `4/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW33`,
-                    colID: `109/250`,
-                    casting: `'71 Dodge Charger`,
-                    set: `5/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW44`,
-                    colID: `170/250`,
-                    casting: `MS-T Suzuka`,
-                    set: `6/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.HW_ART_CARS.TEXT,
-                    toyID: `HCW43`,
-                    colID: `213/250`,
-                    casting: `Electro Silhouette`,
-                    set: `9/10`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCW59`,
-                    colID: `032/250`,
-                    casting: `Batman: Arkham Asylum Batmobile`,
-                    set: `2/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCV63`,
-                    colID: `032/250`,
-                    casting: `Batman: Arkham Asylum Batmobile`,
-                    set: `2/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCW63`,
-                    colID: `032/250`,
-                    casting: `Batman: Arkham Asylum Batmobile`,
-                    set: `2/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCT04`,
-                    colID: `078/250`,
-                    casting: `Classic TV Series Batmobile`,
-                    set: `3/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCW60`,
-                    colID: `078/250`,
-                    casting: `Classic TV Series Batmobile`,
-                    set: `3/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2022,
-                    miniCollection: mhwEnumCollections.BATMAN.TEXT,
-                    toyID: `HCV64`,
-                    colID: `131/250`,
-                    casting: `TV Series Batmobile`,
-                    set: `4/5`,
-                    imageUrl: null
-                },
-                {
-                    year: 2021,
-                    miniCollection: mhwEnumCollections.TRACK_STARS.TEXT,
-                    toyID: `GRY83`,
-                    colID: `123/250`,
-                    casting: `Grand Cross`,
-                    set: `4/5`,
-                    imageUrl: photos["GRY83"]
-                }
-            ];
-
-            data.sort((a, b) => a.year - b.year);
-            /* TODO: then, sort by collection name */
-            /* TODO: then, sort by set */
-
-            var tableTag = document.createElement('table'),
-                dataLength = data.length,
-                defineColumns = Object.keys(data[0]),
-                defineColumnsLength = defineColumns.length
-            ;
-
-            const headerRow = (() => {
-                let headerRow = document.createElement('tr');
-
-                for(let i = -1; i < defineColumnsLength; i++) {
-                    let headerCell = document.createElement('th');
-
-                    if (i === -1) {
-                        headerCell.innerText = `#`;
-                    } else {
-                        headerCell.innerText = defineColumns[i];
-                    }
-
-                    headerRow.appendChild(headerCell);
+                    headerCell.innerText = defineColumns[i];
                 }
 
-                return headerRow;
-            })();
-            tableTag.appendChild(headerRow);
+                headerRow.appendChild(headerCell);
+            }
 
-            <!--region Content-->
-            for(let i = 0; i < dataLength; i++) {
+            return headerRow;
+        })();
+        tableTag.appendChild(headerRow);
+
+        <!--region Content-->
+        for(let i = 0; i < dataLength; i++) {
+            let itemRow = document.createElement('tr');
+            itemRow.setAttribute('class', 'table-counter');
+
+            if (i === 0 || (data[i].year !== data[i-1].year) || (data[i].miniCollection !== data[i-1].miniCollection)) {
                 let itemRow = document.createElement('tr');
-                itemRow.setAttribute('class', 'table-counter');
+                let itemCell = document.createElement('td');
+                const upperCaseCollectionNameWithHypfin = data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_');
 
-                if (i === 0 || (data[i].year !== data[i-1].year) || (data[i].miniCollection !== data[i-1].miniCollection)) {
-                    let itemRow = document.createElement('tr');
-                    let itemCell = document.createElement('td');
-                    const upperCaseCollectionNameWithHypfin = data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_');
+                itemCell.setAttribute('colspan', defineColumnsLength + 1);
+                itemCell.setAttribute('class', mhwEnumCollections[upperCaseCollectionNameWithHypfin].CLASS);
 
-                    itemCell.setAttribute('colspan', defineColumnsLength + 1);
-                    itemCell.setAttribute('class', mhwEnumCollections[upperCaseCollectionNameWithHypfin].CLASS);
+                let aElement = document.createElement('a');
+                let year = data[i].year;
 
-                    let aElement = document.createElement('a');
-                    let year = data[i].year;
+                aElement.setAttribute('href', mhwEnumCollections[upperCaseCollectionNameWithHypfin].URL(year));
+                aElement.setAttribute('target', '_blank');
 
-                    aElement.setAttribute('href', mhwEnumCollections[upperCaseCollectionNameWithHypfin].URL(year));
-                    aElement.setAttribute('target', '_blank');
+                /*if (mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT) {
+                    aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT} (-/${mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT})`;
+                } else {
+                    aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT}`;
+                }*/
 
-                    /*if (mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT) {
-                        aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT} (-/${mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT})`;
-                    } else {
-                        aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT}`;
-                    }*/
-
-                    aElement.innerText = mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT;
+                aElement.innerText = mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT;
 
 
-                    itemCell.appendChild(aElement);
-                    itemRow.appendChild(itemCell);
-                    tableTag.appendChild(itemRow);
-                }
-
-                for(let j = -1; j < defineColumnsLength; j++) {
-                    let tableCell = document.createElement('td');
-
-                    if (j === defineColumnsLength - 1) {
-                        let imgElement = document.createElement('img');
-
-                        let srcValue = data[i][Object.keys(data[i])[j]];
-                        let toyNameValue = data[i][Object.keys(data[i])[4]];
-
-                        imgElement.setAttribute('src', srcValue ? srcValue : '');
-                        imgElement.setAttribute('alt', toyNameValue);
-                        imgElement.setAttribute('title', toyNameValue);
-
-                        tableCell.setAttribute('class', 'img');
-                        tableCell.appendChild(imgElement);
-                    } else {
-                        tableCell.innerText = data[i][Object.keys(data[i])[j]];
-                    }
-
-                    itemRow.appendChild(tableCell);
-                }
-
+                itemCell.appendChild(aElement);
+                itemRow.appendChild(itemCell);
                 tableTag.appendChild(itemRow);
             }
-            <!--endregion-->
 
-            document.body.appendChild(tableTag);
+            for(let j = -1; j < defineColumnsLength; j++) {
+                let tableCell = document.createElement('td');
 
-            var amount = document.getElementsByClassName("table-counter");
-            var counterPositionInTable = 0;
+                if (j === defineColumnsLength - 1) {
+                    let imgElement = document.createElement('img');
 
-            for(var i = 0; i < amount.length; i++) {
-                amount[i].getElementsByTagName('td')[counterPositionInTable].innerText = i+1;
+                    let srcValue = data[i][Object.keys(data[i])[j]];
+                    let toyNameValue = data[i][Object.keys(data[i])[4]];
+
+                    imgElement.setAttribute('src', srcValue ? srcValue : '');
+                    imgElement.setAttribute('alt', toyNameValue);
+                    imgElement.setAttribute('title', toyNameValue);
+
+                    tableCell.setAttribute('class', 'img');
+                    tableCell.appendChild(imgElement);
+                } else {
+                    tableCell.innerText = data[i][Object.keys(data[i])[j]];
+                }
+
+                itemRow.appendChild(tableCell);
             }
+
+            tableTag.appendChild(itemRow);
+        }
+        <!--endregion-->
+
+        document.body.appendChild(tableTag);
+
+        var amount = document.getElementsByClassName("table-counter");
+        var counterPositionInTable = 0;
+
+        for(var i = 0; i < amount.length; i++) {
+            amount[i].getElementsByTagName('td')[counterPositionInTable].innerText = i+1;
         }
     </script>
 </body>
