@@ -97,8 +97,11 @@
         <li style="height: 100%; background-color: gray;">222</li>
     </ul>
 
+    <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script>
-        var photos = {};
+        var photos = {
+            "500px": "https://drscdn.500px.org/photo/1022461/m%3D900/v2?sig=6a64be062f034afad996a941e2e563506a3afe7e9ad8333913beb62d9d65d5ea"
+        };
         window.fbAsyncInit = function() {
             let at;
 
@@ -108,7 +111,13 @@
                 xfbml            : true,
                 version          : 'v15.0'
             });
-            FB.getLoginStatus((response) => auth());
+            FB.getLoginStatus((response) => {
+                if (response.status === 'connected') {
+                    getFBAlbums();
+                } else {
+                    auth();
+                }
+            });
 
             function auth() {
                 FB.login(function(response) {
@@ -154,7 +163,6 @@
             }
         };
     </script>
-    <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script>
         function AfterFbInit() {
             var mhwEnumCollections = {
@@ -374,7 +382,7 @@
                     colID: `106/250`,
                     casting: `2020 Corvette`,
                     set: `3/10`,
-                    imageUrl: null
+                    imageUrl: photos["500px"]
                 },
                 {
                     year: 2022,
