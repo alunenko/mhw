@@ -521,7 +521,6 @@
 
             let heading = document.createElement('a');
 
-            /*let aMiniCollection = document.createElement('a');*/
             let itemMhwEnumCollections = mhwEnumCollections[data[i]['miniCollection'].toUpperCase().split(' ').join('_')];
             heading.setAttribute('href', itemMhwEnumCollections.URL(data[i].year));
             heading.setAttribute('title', itemMhwEnumCollections.TEXT);
@@ -530,6 +529,10 @@
             heading.innerText = `${data[i].year} ${itemMhwEnumCollections.TEXT}`;
 
             divToy.appendChild(heading);
+
+            let liToyDetails = document.createElement('li');
+            liToyDetails.innerText = `#${i+1}`;
+            ulToyDetails.appendChild(liToyDetails);
 
             for(let item in data[i]) {
                 switch(item) {
