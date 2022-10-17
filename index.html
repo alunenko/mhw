@@ -7,97 +7,119 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        html, body { height: 100%; }
-        body > table {
-            display: none;
-            margin-top: 25px;
-            width: 615px;
+        :root {
+            --color-shifters: linear-gradient(90deg, rgba(255, 0, 0, 0.3) 0%, rgba(255, 154, 0, 0.3) 10%, rgba(208, 222, 33, 0.3) 20%, rgba(79, 220, 74, 0.3) 30%, rgba(63, 218, 216, 0.3) 40%, rgba(47, 201, 226, 0.3) 50%, rgba(28, 127, 238, 0.3) 60%, rgba(95, 21, 242, 0.3) 70%, rgba(186, 12, 248, 0.3) 80%, rgba(251, 7, 217, 0.3) 90%, rgba(255, 0, 0, 0.3) 100%);
+            --factory-fresh: #aed8e6;
+            --hw-art-cars: #feff00;
+            --hw-screen-time: #25194e;
+            --hw-flames: red;
+            --hw-rescue-5-pack: blue;
+            --x-raycers: black;
+            --batman: black;
+            --hw-space: #79849d;
+            --track-stars: #3544a3;
         }
-        table:first-child { margin-top: 0; }
-        table, th, td { border: 1px solid; }
-        .color-shifters { background: linear-gradient(90deg, rgba(255, 0, 0, 0.3) 0%, rgba(255, 154, 0, 0.3) 10%, rgba(208, 222, 33, 0.3) 20%, rgba(79, 220, 74, 0.3) 30%, rgba(63, 218, 216, 0.3) 40%, rgba(47, 201, 226, 0.3) 50%, rgba(28, 127, 238, 0.3) 60%, rgba(95, 21, 242, 0.3) 70%, rgba(186, 12, 248, 0.3) 80%, rgba(251, 7, 217, 0.3) 90%, rgba(255, 0, 0, 0.3) 100%); }
-        .factory-fresh      { background-color: #aed8e6; }
-        .hw-art-cars        { background-color: #feff00; }
-        .hw-screen-time a,
-        .hw-flames a,
-        .x-raycers a,
-        .hw-space a,
-        .batman a,
-        .hw-rescue-5-pack a { color: white; }
-        .hw-screen-time     { background-color: #25194e; }
-        .x-raycers,
-        .hw-space,
-        .batman             { background-color: black; }
-        .hw-flames          { background-color: red; }
-        .hw-rescue-5-pack   { background-color: blue; }
+        .color-shifters { background: var(--color-shifters);}
+        .factory-fresh { background: var(--factory-fresh);}
+        .hw-art-cars { background: var(--hw-art-cars);}
+        .hw-screen-time { background: var(--hw-screen-time);}
+        .hw-flames { background: var(--hw-flames);}
+        .hw-rescue-5-pack { background: var(--hw-rescue-5-pack);}
+        .x-raycers { background: var(--x-raycers);}
+        .batman { background: var(--batman);}
+        .hw-space { background: var(--hw-space);}
+        .track-stars { background: var(--track-stars);}
 
-        .img {
-            width: 300px;
-            height: 300px;
+        a.hw-screen-time,
+        a.hw-flames,
+        a.hw-rescue-5-pack,
+        a.x-raycers,
+        a.batman,
+        a.track-stars {
+            color: white;
         }
-        img {
+
+        html, body { height: 100%; }
+
+        .center-absolute {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .toy {
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid;
+            width: 300px;
+            min-height: 150px;
+            overflow: hidden;
+        }
+
+        .toy ul {
+            display: none;
+        }
+
+        .toy.m-show-details ul {
             display: block;
-            object-fit: cover;
+        }
+
+        .toy a {
+            display: inline-block;
+            width: 100%;
+            padding: 3px 10px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .toy img {
+            display: block;
+            object-fit: contain;
             width: 100%;
             height: 100%;
-        }
-        li > table {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 5%;
-            height: 100%;
-            box-sizing: border-box;
-            background-color: white;
+            opacity: 100%;
+            transition: .3s all;
         }
 
-        @media screen and (min-width: 320px) {
-          html, body { height: unset; }
-          body > table { display: table; }
-          ul { display: none; }
+        .toy.m-show-details img {
+            opacity: 5%;
+        }
+
+        .toy ul {
+            padding: 5px;
+            list-style: none;
+            box-sizing: border-box;
+            width: 200px;
+            height: 85px;
         }
     </style>
 </head>
 <body>
-    <ul style="height: 100%;">
-        <li style="height: 100%; background-color: blue;">
-            <table>
-                <!--region Color shifters -->
-                <tr>
-                    <th>Year</th>
-                    <td>2019</td>
-                </tr>
-                <tr>
-                    <th>Mini Collection</th>
-                    <td colspan="8"
-                        class="color-shifters">
-                        <a href="https://hotwheels.fandom.com/wiki/Color_Shifters#2022_Color_Shifters">Color Shifters (Catalogue link)</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Toy #</th>
-                    <td>BHR31</td>
-                </tr>
-                <tr>
-                    <th>Col. #</th>
-                    <td>---</td>
-                </tr>
-                <tr>
-                    <th>Casting</th>
-                    <td>Fish'd & Chip'd</td>
-                </tr>
-                <tr>
-                    <th>Set #</th>
-                    <td>---</td>
-                </tr>
-                <!--endregion-->
-            </table>
-            <img src="">
-        </li>
-        <li style="height: 100%; background-color: gray;">222</li>
-    </ul>
+    <div id="toy-list"
+         onclick="showDetails(event)"
+         style="display: flex; flex-wrap: wrap; justify-content: space-between; row-gap: 2vw;">
+        <!--<div class="toy">
+            <a href="#" class="color-shifters">2018 Multipack Exclusive</a>
+            <img src="https://drscdn.500px.org/photo/1055480894/m%3D900/v2?sig=363c92586c60efac91e2ba1dc597020f5d81d131ea87dcbc2c7d7168878ba96c" alt="Chicane">
+            <ul class="center-absolute">
+                <li>#</li>
+                <li>year: 2018</li>
+                <li>miniCollection: Multipack Exclusive</li>
+                <li>toyID: </li>
+                <li>colID: </li>
+                <li>casting: Chicane (base code: K47)</li>
+                <li>set: Chicane (base code: K47)</li>
+            </ul>
+        </div>-->
+    </div>
 
     <script>
+        function showDetails(event) {
+            event.target.closest(".toy").classList.toggle('m-show-details');
+        }
         var mhwEnumCollections = {
             MULTIPACK_EXCLUSIVE: {
                 URL: (year) => `https://hotwheels.fandom.com/wiki/${year}_Multi-Pack_Exclusives`,
@@ -115,7 +137,7 @@
                 CLASS: `hw-art-cars`
                 /* 2022 -> CARS_AMOUNT: 19 */
             },
-            HW_RESCUE_5_PACK: {
+            'HW_RESCUE_5-PACK': {
                 URL: (year) => `https://hotwheels.fandom.com/wiki/HW_Rescue_5-Pack`,
                 TEXT: `HW Rescue 5-Pack`,
                 CLASS: `hw-rescue-5-pack`
@@ -130,7 +152,7 @@
                 TEXT: `Factory Fresh`,
                 CLASS: `factory-fresh`
             },
-            X_RAYCERS: {
+            'X-RAYCERS': {
                 URL: (year) => `https://hotwheels.fandom.com/wiki/X-Raycers_Mini_Collection_(${year})`,
                 TEXT: `X-Raycers`,
                 CLASS: `x-raycers`
@@ -203,7 +225,7 @@
             },
             {
                 year: 2020,
-                miniCollection: mhwEnumCollections.HW_RESCUE_5_PACK.TEXT,
+                miniCollection: mhwEnumCollections['HW_RESCUE_5-PACK'].TEXT,
                 toyID: `J5`,
                 colID: null,
                 casting: `Speed Trap`,
@@ -230,7 +252,7 @@
             },
             {
                 year: 2021,
-                miniCollection: mhwEnumCollections.X_RAYCERS.TEXT,
+                miniCollection: mhwEnumCollections['X-RAYCERS'].TEXT,
                 toyID: `GRX53`,
                 colID: `160/250`,
                 casting: `Draftnator`,
@@ -492,100 +514,53 @@
         ];
 
         data.sort((a, b) => a.year - b.year);
-        /* TODO: then, sort by collection name */
-        /* TODO: then, sort by set */
 
-        var tableTag = document.createElement('table'),
-            dataLength = data.length,
-            defineColumns = Object.keys(data[0]),
-            defineColumnsLength = defineColumns.length
-        ;
+        var divToyList = document.getElementById('toy-list');
+        var dataLength1 = data.length;
 
-        const headerRow = (() => {
-            let headerRow = document.createElement('tr');
+        for(let i = 0; i < dataLength1; i++) {
+            let divToy = document.createElement('div');
+            divToy.setAttribute('class', 'toy');
+            let imgToy = document.createElement('img');
+            let ulToyDetails = document.createElement('ul');
+            ulToyDetails.setAttribute('class', 'center-absolute');
 
-            for(let i = -1; i < defineColumnsLength; i++) {
-                let headerCell = document.createElement('th');
+            let heading = document.createElement('a');
 
-                if (i === -1) {
-                    headerCell.innerText = `#`;
-                } else {
-                    headerCell.innerText = defineColumns[i];
+            /*let aMiniCollection = document.createElement('a');*/
+            let itemMhwEnumCollections = mhwEnumCollections[data[i]['miniCollection'].toUpperCase().split(' ').join('_')];
+            heading.setAttribute('href', itemMhwEnumCollections.URL(data[i].year));
+            heading.setAttribute('title', itemMhwEnumCollections.TEXT);
+            heading.setAttribute('target', '_blank');
+            heading.setAttribute('class', itemMhwEnumCollections.CLASS);
+            heading.innerText = `${data[i].year} ${itemMhwEnumCollections.TEXT}`;
+
+            divToy.appendChild(heading);
+
+            for(let item in data[i]) {
+                switch(item) {
+                    case 'imageUrl': {
+                        imgToy.setAttribute('src', data[i][item]);
+                        divToy.appendChild(imgToy);
+
+                        break;
+                    }
+                    case 'year':
+                    case 'miniCollection': {
+                        break;
+                    }
+                    default: {
+                        let liToyDetails = document.createElement('li');
+                        liToyDetails.innerText = `${item}: ${data[i][item]}`;
+                        ulToyDetails.appendChild(liToyDetails);
+
+                        break;
+                    }
                 }
-
-                headerRow.appendChild(headerCell);
             }
 
-            return headerRow;
-        })();
-        tableTag.appendChild(headerRow);
-
-        <!--region Content-->
-        for(let i = 0; i < dataLength; i++) {
-            let itemRow = document.createElement('tr');
-            itemRow.setAttribute('class', 'table-counter');
-
-            if (i === 0 || (data[i].year !== data[i-1].year) || (data[i].miniCollection !== data[i-1].miniCollection)) {
-                let itemRow = document.createElement('tr');
-                let itemCell = document.createElement('td');
-                const upperCaseCollectionNameWithHypfin = data[i].miniCollection.toUpperCase().replaceAll(' ', '_').replaceAll('-', '_');
-
-                itemCell.setAttribute('colspan', defineColumnsLength + 1);
-                itemCell.setAttribute('class', mhwEnumCollections[upperCaseCollectionNameWithHypfin].CLASS);
-
-                let aElement = document.createElement('a');
-                let year = data[i].year;
-
-                aElement.setAttribute('href', mhwEnumCollections[upperCaseCollectionNameWithHypfin].URL(year));
-                aElement.setAttribute('target', '_blank');
-
-                /*if (mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT) {
-                    aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT} (-/${mhwEnumCollections[upperCaseCollectionNameWithHypfin].CARS_AMOUNT})`;
-                } else {
-                    aElement.innerText = `${mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT}`;
-                }*/
-
-                aElement.innerText = mhwEnumCollections[upperCaseCollectionNameWithHypfin].TEXT;
-
-
-                itemCell.appendChild(aElement);
-                itemRow.appendChild(itemCell);
-                tableTag.appendChild(itemRow);
-            }
-
-            for(let j = -1; j < defineColumnsLength; j++) {
-                let tableCell = document.createElement('td');
-
-                if (j === defineColumnsLength - 1) {
-                    let imgElement = document.createElement('img');
-
-                    let srcValue = data[i][Object.keys(data[i])[j]];
-                    let toyNameValue = data[i][Object.keys(data[i])[4]];
-
-                    imgElement.setAttribute('src', srcValue ? srcValue : '');
-                    imgElement.setAttribute('alt', toyNameValue);
-                    imgElement.setAttribute('title', toyNameValue);
-
-                    tableCell.setAttribute('class', 'img');
-                    tableCell.appendChild(imgElement);
-                } else {
-                    tableCell.innerText = data[i][Object.keys(data[i])[j]];
-                }
-
-                itemRow.appendChild(tableCell);
-            }
-
-            tableTag.appendChild(itemRow);
-        }
-        <!--endregion-->
-
-        document.body.appendChild(tableTag);
-
-        var amount = document.getElementsByClassName("table-counter");
-        var counterPositionInTable = 0;
-
-        for(var i = 0; i < amount.length; i++) {
-            amount[i].getElementsByTagName('td')[counterPositionInTable].innerText = i+1;
+            divToy.appendChild(ulToyDetails);
+            divToyList.appendChild(divToy);
         }
     </script>
 </body>
