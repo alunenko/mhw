@@ -8,6 +8,7 @@
     <title>Document</title>
     <style>
         :root {
+            --gap: 2vw;
             --color-shifters: linear-gradient(90deg, rgba(255, 0, 0, 0.3) 0%, rgba(255, 154, 0, 0.3) 10%, rgba(208, 222, 33, 0.3) 20%, rgba(79, 220, 74, 0.3) 30%, rgba(63, 218, 216, 0.3) 40%, rgba(47, 201, 226, 0.3) 50%, rgba(28, 127, 238, 0.3) 60%, rgba(95, 21, 242, 0.3) 70%, rgba(186, 12, 248, 0.3) 80%, rgba(251, 7, 217, 0.3) 90%, rgba(255, 0, 0, 0.3) 100%);
             --factory-fresh: #aed8e6;
             --hw-art-cars: #feff00;
@@ -50,13 +51,20 @@
             margin: auto;
         }
 
+        .toy-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--gap);
+        }
+
         .toy {
             position: relative;
             border-radius: 20px;
             border: 1px solid;
-            width: 300px;
+            width: 100%;
             min-height: 150px;
             overflow: hidden;
+            flex: 1 1 auto;
         }
 
         .toy ul { display: none; }
@@ -64,11 +72,15 @@
         .toy.m-show-details ul { display: block; }
 
         .toy a {
+            box-sizing: border-box;
             display: inline-block;
             width: 100%;
             padding: 3px 10px;
             margin: 0;
             text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .toy img {
@@ -89,12 +101,19 @@
             width: 200px;
             height: 85px;
         }
+
+        @media screen and (min-width: 768px) {
+            .toy {
+                width: calc(25% - var(--gap));
+                max-width: unset;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="toy-list"
-         onclick="showDetails(event)"
-         style="display: flex; flex-wrap: wrap; justify-content: space-between; row-gap: 2vw;">
+         class="toy-list"
+         onclick="showDetails(event)">
         <!--<div class="toy">
             <a href="#" class="color-shifters">2018 Multipack Exclusive</a>
             <img src="https://drscdn.500px.org/photo/1055480894/m%3D900/v2?sig=363c92586c60efac91e2ba1dc597020f5d81d131ea87dcbc2c7d7168878ba96c" alt="Chicane">
